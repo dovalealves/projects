@@ -1,0 +1,41 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('/img/wallpaperflare.com_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    max-width: 600px;
+    padding: 1px; /* Corrected padding value */
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
+}
+
+.logo-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center vertically within the container */
+}
+
+.logo-image {
+    margin-left: 10px; /* Add a bit of space between the logo and the h1 text */
+    max-height: 50px; /* Adjust the max height of the logo image */
+}
+
