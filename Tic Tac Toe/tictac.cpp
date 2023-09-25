@@ -1,22 +1,25 @@
 #include <iostream>
+#include <stdlib.h>
+#include "tictac.hpp"
 
+// Little project developed while completing Code Academy C++ development course! 25/09/2023
+//Good practice!
 
 int main(){
 
- void displayBoard(char board[3][3]){
-    std::cout << "  1 2 3" << "\n";
-    for (int row = 0; row < 3; ++row) {
-        std::cout << row + 1 << " ";
-        for (int col = 0; col < 3; ++col) {
-            std::cout << board[row][col];
-            if (col < 2) {
-                std::cout << "|"; // Vertical separator
-            }
-        }
-        std::cout << std::endl;
-        if (row < 2) {
-            std::cout << "  -+-+-" << std::endl; // Horizontal separator
-        }
-    }
+std::cout << "\n             Welcome to @dovalealves TIC--TAC--TOE Game!\n\n";
+std::cout << "             ############-2 PLAYERS REQUIRED-############\n\n";
+std::cout << "                  Player(1) [X]    Player(2) [O]\n";
+
+
+while (!isGameOver()){
+
+    displayBoard();
+    playerTurn();
+    isGameOver();
 }
+
+gameMessages();
+
+
 }
