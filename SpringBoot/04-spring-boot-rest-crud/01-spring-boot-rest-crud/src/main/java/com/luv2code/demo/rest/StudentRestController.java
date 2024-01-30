@@ -23,7 +23,7 @@ public class StudentRestController {
 
         theStudents = new ArrayList<>();
 
-        theStudents.add(new Student("Leo", "Di Caprio"));
+        theStudents.add(new Student("Leo", "DiCaprio"));
         theStudents.add(new Student("Jack", "Nicholson"));
         theStudents.add(new Student("Denzel", "Washington"));
     }
@@ -44,6 +44,7 @@ public class StudentRestController {
         // just index into the list, keeping it simple
 
         return  theStudents.get(studentId);
+
     }
 
 }
