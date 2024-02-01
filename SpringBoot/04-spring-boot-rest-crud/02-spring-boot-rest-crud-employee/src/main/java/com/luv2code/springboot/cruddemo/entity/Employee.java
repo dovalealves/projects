@@ -22,7 +22,7 @@ public class Employee {
 
 
     // define constructors
-    
+
     public Employee() {
 
     }
