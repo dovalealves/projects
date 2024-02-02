@@ -16,14 +16,14 @@ public class EmployeeRestController {
     }
 
     // expose "/employees" endpoint and return a list of employees
-    @GetMapping("/employees")
+    @GetMapping("/api/employees")
     public List<Employee> findAll() {
         return employeeService.findAll();
     }
 
     // add mapping for GET /employees/{employeeId}
 
-    @GetMapping("/employees/{employeeId}")
+    @GetMapping("/api/employees/{employeeId}")
     public Employee getEmployee(@PathVariable int employeeId) {
 
         Employee employee = employeeService.findById(employeeId);
@@ -37,7 +37,7 @@ public class EmployeeRestController {
 
     // add mapping for POST /employees/{employeeId}
 
-    @PostMapping("/employees")
+    @PostMapping("/api/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
 
         // just in case they pass an id in JSON, set id to 0 -- this is to force a save of the new item instead of update
@@ -48,4 +48,30 @@ public class EmployeeRestController {
         return dbEmployee;
     }
 
+    // add mapping for PUT /employees - update existing employee
+
+    @PutMapping("/api/employees")
+    public Employee updateEmployee(@RequestBody Employee employee){
+
+        Employee dbEmployee = employeeService.save(employee);
+
+        return dbEmployee;
+    }
+
+    @DeleteMapping("/api/employees/{employeeId}")
+    public String deleteEmployee(@PathVariable int employeeId){
+
+        Employee employee = employeeService.findById(employeeId);
+
+        // if null throw exception
+
+        if  (employee == null) {
+            throw new RuntimeException("Employee id not found - " + employeeId);
+        }
+
+        employeeService.deleteById(employeeId);
+
+        return "Deleted employee with Id - " + employeeId;
+
+    }
 }
