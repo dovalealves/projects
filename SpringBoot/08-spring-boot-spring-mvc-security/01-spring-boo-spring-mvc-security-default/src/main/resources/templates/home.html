@@ -3,10 +3,11 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>DVAlves Company Home Page</title>
+    <title>Alves Company Home Page</title>
 </head>
 <body>
-<h2> DVAlves Company Home Page</h2>
+<h2> Alves Company Home Page</h2>
+
 <hr>
 <p>
     Welcome to our company home page!
@@ -17,23 +18,26 @@
 <!-- display username and role -->
 <p>
     User: <span sec:authentication="principal.username"></span>
+    <br><br>
     Role(s): <span sec:authentication="principal.authorities"></span>
 </p>
 
-<hr>
-<!-- Add a link to point to /leader, for managers only -->
-<p>
-    <a th:href="@{/leaders}">Leadership Meeting</a>
-    (Only for Managers)
-</p>
+<div sec:authorize="hasRole('MANAGER')">
+    <!-- Add a link to point to /leader, for managers only -->
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only for Managers)
+    </p>
+</div>
 
-<hr>
-<!-- Add a link to point to /leader, for managers only -->
-<p>
-    <a th:href="@{/systems}">Admin</a>
-    (Only for Admin users)
-</p>
 
+<div sec:authorize="hasRole('ADMIN')">
+    <!-- Add a link to point to /leader, for managers only -->
+    <p>
+        <a th:href="@{/systems}">Admin</a>
+        (Only for Admin users)
+    </p>
+</div>
 <hr>
 
 <!-- add logout button -->
